@@ -14,6 +14,7 @@ var _ = require('lodash'),
  */
 var getGlobbedPaths = function (globPatterns, excludes) {
   // URL paths regex
+  // this matches: x://, xxx://, //
   var urlRegex = new RegExp('^(?:[a-z]+:)?\/\/', 'i');
 
   // The output array
@@ -172,6 +173,7 @@ var initGlobalConfigFiles = function (config, assets) {
  * Initialize global configuration
  */
 var initGlobalConfig = function () {
+  console.log('--jason 0a');
   // Validate NODE_ENV existence
   validateEnvironmentVariable();
 

@@ -22,7 +22,7 @@ module.exports.loadModels = function (callback) {
 // Initialize Mongoose
 module.exports.connect = function (callback) {
   mongoose.Promise = config.db.promise;
-
+  console.log('--jason 02b');
   var options = _.merge(config.db.options || {}, { useMongoClient: true });
 
   mongoose

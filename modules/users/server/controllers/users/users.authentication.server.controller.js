@@ -1,5 +1,7 @@
 'use strict';
 
+var logger = require('../../../../../config/lib/logger');
+
 /**
  * Module dependencies
  */
@@ -53,8 +55,10 @@ exports.signup = function (req, res) {
  * Signin after passport authentication
  */
 exports.signin = function (req, res, next) {
+  logger.info(`--jason sing in`);
   passport.authenticate('local', function (err, user, info) {
     if (err || !user) {
+      logger.warn(`--jason sing in error: ${JSON.stringify(info)}`);
       res.status(422).send(info);
     } else {
       // Remove sensitive data before login
@@ -76,6 +80,7 @@ exports.signin = function (req, res, next) {
  * Signout
  */
 exports.signout = function (req, res) {
+  logger.info(`--jason sing out`);
   req.logout();
   res.redirect('/');
 };
